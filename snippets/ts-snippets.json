@@ -161,30 +161,6 @@
     ],
     "description": "Creates a React pure component class with ES7 module system and TypeScript interface"
   },
-  "typeScriptReactClassExportPureComponent": {
-    "prefix": "tsrpce",
-    "body": [
-      "import React, { PureComponent } from 'react'",
-      "",
-      "interface Props {",
-      "\t",
-      "}",
-      "",
-      "class ${1:${TM_FILENAME_BASE}} extends PureComponent<Props> {",
-      "\trender() {",
-      "\t\treturn (",
-      "\t\t\t<div>",
-      "\t\t\t\t$0",
-      "\t\t\t</div>",
-      "\t\t)",
-      "\t}",
-      "}",
-      "",
-      "export default ${1:${TM_FILENAME_BASE}}",
-      ""
-    ],
-    "description": "Creates a React pure component class with ES7 module system and TypeScript interface"
-  },
   "typeScriptReactFunctionMemoComponent": {
     "prefix": "tsrmc",
     "body": [
@@ -204,44 +180,6 @@
       ""
     ],
     "description": "Creates a React Memo Function Component with ES7 module system and TypeScript interface"
-  },
-  "typeScriptReactClassCompomentRedux": {
-    "prefix": "tsrcredux",
-    "body": [
-      "import React, { Component } from 'react'",
-      "import { connect } from 'react-redux'",
-      "",
-      "interface Props {",
-      "\t",
-      "}",
-      "interface State {",
-      "\t",
-      "}",
-      "",
-      "export class ${1:${TM_FILENAME_BASE}} extends Component<Props, State> {",
-      "\tstate = {}",
-      "",
-      "\trender() {",
-      "\t\treturn (",
-      "\t\t\t<div>",
-      "\t\t\t\t$0",
-      "\t\t\t</div>",
-      "\t\t)",
-      "\t}",
-      "}",
-      "",
-      "const mapStateToProps = (state) => ({",
-      "\t",
-      "})",
-      "",
-      "const mapDispatchToProps = {",
-      "\t",
-      "}",
-      "",
-      "export default connect(mapStateToProps, mapDispatchToProps)(${1:${TM_FILENAME_BASE}})",
-      ""
-    ],
-    "description": "Creates a React component class with PropTypes with connected redux and ES7 module system and TypeScript interfaces"
   },
   "typescriptReactNativeArrowFunctionComponent": {
     "prefix": "tsrnf",
@@ -269,7 +207,7 @@
     "prefix": "tsrnfis",
     "body": [
       "import React from 'react'",
-      "import { View } from 'react-native'",
+      "import { View, Text, StyleSheet } from 'react-native'",
       "",
       "interface ${1:${TM_FILENAME_BASE}}Props {",
       "\t",
@@ -277,48 +215,22 @@
       "",
       "const styles = StyleSheet.create({",
       "\tcontainer: {",
-      "\t\talignItems: \"center\"",
-      "\t\tflex: 1",
+      "\t\talignItems: \"center\",",
+      "\t\tflex: 1,",
       "\t\tjustifyContent: \"center\"",
-      "}",
+      "\t}",
       "})",
       "",
-      "export const ${1:${TM_FILENAME_BASE}}: React.FunctionComponent<${1:${TM_FILENAME_BASE}}Props> = ({}) => {",
+      "export const ${1:${TM_FILENAME_BASE}}: React.FC<${1:${TM_FILENAME_BASE}}Props> = ({}) => {",
       "\treturn (",
       "\t\t<View style={styles.container}>",
       "\t\t\t<Text>Hi</Text>",
       "\t\t</View>",
       "\t)",
       "}",
-      "",
       ""
     ],
     "description": "Creates a React Native Arrow Function Component with ES7 module system and named TypeScript interface"
-  },
-  "typescriptReactNativeArrowFunctionComponentWithStyles": {
-    "prefix": "tsrnfs",
-    "body": [
-      "import React from 'react'",
-      "import { StyleSheet, Text, View } from 'react-native'",
-      "",
-      "interface Props {",
-      "\t",
-      "}",
-      "",
-      "const ${1:${TM_FILENAME_BASE}} = (props: Props) => {",
-      "\treturn (",
-      "\t\t<View>",
-      "\t\t\t<Text>$0</Text>",
-      "\t\t</View>",
-      "\t)",
-      "}",
-      "",
-      "export default ${1:${TM_FILENAME_BASE}}",
-      "",
-      "const styles = StyleSheet.create({})",
-      ""
-    ],
-    "description": "Creates a React Native Arrow Function Component with ES7 module system, TypeScript interface and StyleSheet"
   },
   "Export interface": {
     "prefix": "expint",
@@ -327,5 +239,66 @@
   "Export type": {
     "prefix": "exptp",
     "body": ["export type ${1:${TM_FILENAME_BASE}} = {$0}"]
+  },
+  "Animated Style - Reanimated 2": {
+    "prefix": "useAnimatedStyle",
+    "body": [
+      "const animatedStyle = useAnimatedStyle(() => ({",
+      "\ttransform: [{translateY: sharedValue.value}]",
+      "}))"
+    ]
+  },
+  "Shared Value - Reanimated 2": {
+    "prefix": "sharedValue",
+    "body": ["const ${1} = useSharedValue<number>(0)"]
+  },
+  "Derived Value - Reanimated 2": {
+    "prefix": "derivedValue",
+    "body": [
+      "const derivedValue = useDerivedValue(() => {",
+      "\treturn {",
+      "\t\t${1}",
+      "\t}",
+      "}, [])"
+    ]
+  },
+  "Animated Props - Reanimated 2": {
+    "prefix": "animatedProps",
+    "body": [
+      "const animatedProps = useAnimatedProps(() => {",
+      "\treturn {",
+      "\t\t${1}",
+      "\t}",
+      "})"
+    ]
+  },
+  "Animated Gesture Handler - Reanimated 2": {
+    "prefix": "animatedPanGesture",
+    "body": [
+      "const gestureHandler = useAnimatedGestureHandler<",
+      "\tPanGestureHandlerGestureEvent,",
+      "\t { offsetY: number, offsetX: number }",
+      ">({",
+      "\t\t onActive: ({ translationY }, context) => {",
+      "\t\t\t translateY.value = translationY + context.offsetY",
+      "\t\t },",
+      "\t\tonStart: (_event, context) => {",
+      "\t\t\t context.offsetY = translateY.value",
+      "\t\t },",
+      "})"
+    ]
+  },
+  "Animated Tap Handler - Reanimated 2": {
+    "prefix": "animatedTapGesture",
+    "body": [
+      "const tapGestureEvent = useAnimatedGestureHandler<",
+      "\tTapGestureHandlerGestureEvent,",
+      "\t any",
+      ">({",
+      "\t\t onActive: () => {",
+      "\t\t\t runOnJS(onPress)()",
+      "\t\t },",
+      "})"
+    ]
   }
 }
