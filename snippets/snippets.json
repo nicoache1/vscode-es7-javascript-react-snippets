@@ -193,10 +193,6 @@
     "prefix": "imrse",
     "body": ["import React, { useState, useEffect } from 'react'", ""]
   },
-  "import redux statement": {
-    "prefix": "redux",
-    "body": ["import { connect } from 'react-redux'", ""]
-  },
   "classConstructor": {
     "prefix": "rconst",
     "body": [
@@ -211,35 +207,15 @@
     ],
     "description": "Adds a default constructor for it('', () => {})the class that contains props as arguments"
   },
-  "emptyState": {
-    "prefix": "est",
-    "body": ["state = {", "\t$1", "}", ""],
-    "description": "Creates empty state object. To be used in a constructor."
-  },
-  "componentWillMount": {
-    "prefix": "cwm",
-    "body": ["componentWillMount() {", "\t$0", "}", ""],
-    "description": "DEPRECATED!!!. Invoked once, both on the client and server, immediately before the initial rendering occurs"
-  },
   "componentDidMount": {
     "prefix": "cdm",
     "body": ["componentDidMount() {", "\t$0", "}", ""],
     "description": "Invoked once, only on the client (not on the server), immediately after the initial rendering occurs."
   },
-  "componentWillReceiveProps": {
-    "prefix": "cwr",
-    "body": ["componentWillReceiveProps(nextProps) {", "\t$0", "}", ""],
-    "description": "DEPRECATED!!!. Invoked when a component is receiving new props. This method is not called for the initial render."
-  },
   "shouldComponentUpdate": {
     "prefix": "scu",
     "body": ["shouldComponentUpdate(nextProps, nextState) {", "\t$0", "}", ""],
     "description": "Invoked before rendering when new props or state are being received. "
-  },
-  "componentWillUpdate": {
-    "prefix": "cwup",
-    "body": ["componentWillUpdate(nextProps, nextState) {", "\t$0", "}", ""],
-    "description": "DEPRECATED!!!. Invoked immediately before rendering when new props or state are being received."
   },
   "componentDidUpdate": {
     "prefix": "cdup",

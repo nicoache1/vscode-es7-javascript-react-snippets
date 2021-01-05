@@ -249,11 +249,11 @@
     ]
   },
   "Shared Value - Reanimated 2": {
-    "prefix": "sharedValue",
+    "prefix": "useSharedValue",
     "body": ["const ${1} = useSharedValue<number>(0)"]
   },
   "Derived Value - Reanimated 2": {
-    "prefix": "derivedValue",
+    "prefix": "useDerivedValue",
     "body": [
       "const derivedValue = useDerivedValue(() => {",
       "\treturn {",
@@ -263,7 +263,7 @@
     ]
   },
   "Animated Props - Reanimated 2": {
-    "prefix": "animatedProps",
+    "prefix": "useAnimatedProps",
     "body": [
       "const animatedProps = useAnimatedProps(() => {",
       "\treturn {",
